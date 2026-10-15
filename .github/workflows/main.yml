@@ -16,7 +16,8 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - uses: android-actions/setup-android@v3
+      - name: Accept licenses
+        run: yes | sdkmanager --licenses || true
 
       - name: Build with Gradle
         run: gradle assembleDebug --no-daemon
